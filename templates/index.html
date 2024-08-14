@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Laptop Price Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        select, input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Laptop Price Predictor</h1>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="company">Brand</label>
+                <select id="company" name="company">
+                    <option value="Apple">Apple</option>
+                    <option value="HP">HP</option>
+                    <option value="Acer">Acer</option>
+                    <option value="Asus">Asus</option>
+                    <option value="Dell">Dell</option>
+                    <option value="Lenovo">Lenovo</option>
+                    <option value="Chuwi">Chuwi</option>
+                    <option value="MSI">MSI</option>
+                    <option value="Microsoft">Microsoft</option>
+                    <option value="Toshiba">Toshiba</option>
+                    <option value="Huawei">Huawei</option>
+                    <option value="Xiaomi">Xiaomi</option>
+                    <option value="Vero">Vero</option>
+                    <option value="Razer">Razer</option>
+                    <option value="Mediacom">Mediacom</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="Google">Google</option>
+                    <option value="Fujitsu">Fujitsu</option>
+                    <option value="LG">LG</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="lap_type">Type</label>
+                <select id="lap_type" name="lap_type">
+                    <option value="Ultrabook">Ultrabook</option>
+                    <option value="Notebook">Notebook</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="2 in 1 Convertible">2 in 1 Convertible</option>
+                    <option value="Workstation">Workstation</option>
+                    <option value="Netbook">Netbook</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ram_type">RAM(GB)</label>
+                <select id="ram_type" name="ram_type">
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                    <option value="12">12</option>
+                    <option value="16">16</option>
+                    <option value="24">24</option>
+                    <option value="32">32</option>
+                    <option value="64">64</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight</label>
+                <input type="number" id="weight" name="weight" min="0" step="any">
+            </div>
+            <div class="form-group">
+                <label for="touchscreen">Touchscreen</label>
+                <select id="touchscreen" name="touchscreen">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ips">IPS</label>
+                <select id="ips" name="ips">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="screen_size">Screen Size</label>
+                <input type="number" id="screen_size" name="screen_size" min="0" step="any">
+            </div>
+            <div class="form-group">
+                <label for="resolution">Screen Resolution</label>
+                <select id="resolution" name="resolution">
+                    <option value="1920x1080">1920x1080</option>
+                    <option value="1366x768">1366x768</option>
+                    <option value="1600x900">1600x900</option>
+                    <option value="3840x1800">3840x1800</option>
+                    <option value="2880x1800">2880x1800</option>
+                    <option value="2560x1600">2560x1600</option>
+                    <option value="2560x1440">2560x1440</option>
+                    <option value="2304x1440">2304x1440</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cpu">CPU</label>
+                <select id="cpu" name="cpu">
+                    <option value="Intel Core i5">Intel Core i5</option>
+                    <option value="Intel Core i7">Intel Core i7</option>
+                    <option value="AMD Processor">AMD Processor</option>
+                    <option value="Intel Core i3">Intel Core i3</option>
+                    <option value="other Intel Processor">other Intel Processor</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hdd">HDD(GB)</label>
+                <select id="hdd" name="hdd">
+                    <option value="0">0</option>
+                    <option value="128">128</option>
+                    <option value="256">256</option>
+                    <option value="512">512</option>
+                    <option value="1024">1024</option>
+                    <option value="2048">2048</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ssd">SSD(GB)</label>
+                <select id="ssd" name="ssd">
+                    <option value="0">0</option>
+                    <option value="8">8</option>
+                    <option value="128">128</option>
+                    <option value="256">256</option>
+                    <option value="512">512</option>
+                    <option value="1024">1024</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="gpu">GPU</label>
+                <select id="gpu" name="gpu">
+                    <option value="Intel">Intel</option>
+                    <option value="AMD">AMD</option>
+                    <option value="Nvidia">Nvidia</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="os">OS</label>
+                <select id="os" name="os">
+                    <option value="Mac">Mac</option>
+                    <option value="Others">Others</option>
+                    <option value="Windows">Windows</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Predict Price</button>
+        </form>
+        {% if prediction_text %}
+            <h2>{{ prediction_text }}</h2>
+        {% endif %}
+        {% if error %}
+            <h2>{{ error }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
